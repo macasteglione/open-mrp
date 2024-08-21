@@ -1,0 +1,12 @@
+delete from  pedido_fabricacion_planificaciones;
+delete from  planificacion;
+delete from  orden_trabajo;
+delete from  pedido_fabricacion;
+delete from  cliente;
+delete from  taller_equipos;
+delete from  equipo;
+delete from  taller;
+delete from  producto_tareas;
+delete from  tarea;
+delete from  producto;
+delete from  tipo_equipo;

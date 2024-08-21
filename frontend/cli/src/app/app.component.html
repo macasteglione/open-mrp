@@ -1,0 +1,63 @@
+<div [class.loading]="loading">
+    <div *ngIf="loading" class="loading-overlay">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+</div>
+<ul>
+    <li><a routerLink="/">Home</a></li>
+    <li>
+        <a routerLink="#">Clientes</a>
+        <ul class="dropdown">
+            <li>
+                <a routerLink="/clientes">Listar</a>
+            </li>
+            <li>
+                <a routerLink="/clientes/new">Nuevo</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a routerLink="#">Talleres</a>
+        <ul class="dropdown">
+            <li>
+                <a routerLink="/talleres">Listar</a>
+            </li>
+            <li>
+                <a routerLink="/talleres/equipos/tipos">Tipos</a>
+            </li>
+            <li>
+                <a routerLink="/talleres/new">Nuevo</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a routerLink="#">Productos</a>
+        <ul class="dropdown">
+            <li>
+                <a routerLink="/productos">Listar</a>
+            </li>
+            <li>
+                <a routerLink="/productos/new">Nuevo</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a routerLink="#">Pedidos</a>
+        <ul class="dropdown">
+            <li>
+                <a routerLink="/pedidos">Listar</a>
+            </li>
+            <li>
+                <a routerLink="/pedidos/new">Nuevo</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a routerLink="/visualizar">Visualizar</a>
+    </li>
+</ul>
+<div class="container" id="page">
+    <router-outlet></router-outlet>
+</div>

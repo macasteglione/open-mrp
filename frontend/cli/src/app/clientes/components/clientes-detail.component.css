@@ -1,0 +1,33 @@
+.botones button {
+    margin-right: 1em;
+}
+
+.botones {
+    display: flex;
+    margin-bottom: 2em;
+}
+
+.botones h2 {
+    margin-right: 1.5em;
+}
+
+input {
+    width: auto;
+}
+
+.editBox {
+    display: flex;
+    align-items: center;
+}
+
+.editBox input {
+    margin-right: 3em;
+}
+
+.editBox label {
+    margin-right: 1em;
+    color: white;
+    background-color: gray;
+    padding: 5px;
+    border-radius: 5px;
+}

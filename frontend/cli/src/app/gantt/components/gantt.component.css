@@ -1,0 +1,74 @@
+.equipment-code {
+    width: 220px;
+    height: 40px;
+    background-color: #2c2c2c;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.gantt {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.gantt input {
+    margin-right: 3em;
+}
+
+.gantt label {
+    margin-right: 1em;
+    color: white;
+    background-color: gray;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+input {
+    width: auto;
+}
+
+.buscar {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+
+.scrollable-container {
+    overflow-x: auto;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.gantt-chart {
+    display: inline-block;
+    height: 300px;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading .header,
+.loading .container.white-div {
+    pointer-events: none;
+}

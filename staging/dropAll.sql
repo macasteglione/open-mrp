@@ -1,0 +1,12 @@
+drop table pedido_fabricacion_planificaciones;
+drop table planificacion;
+drop table orden_trabajo;
+drop table pedido_fabricacion;
+drop table cliente;
+drop table taller_equipos;
+drop table equipo;
+drop table taller;
+drop table producto_tareas;
+drop table tarea;
+drop table producto;
+drop table tipo_equipo;

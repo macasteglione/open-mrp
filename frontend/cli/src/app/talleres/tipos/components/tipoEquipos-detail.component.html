@@ -1,0 +1,25 @@
+<div *ngIf="tipoEquipo">
+    <div class="botones">
+        <h2>{{
+            tipoEquipo && tipoEquipo.id ? "Tipo Equipo N° " + tipoEquipo.id : "Nuevo Tipo de Equipo"
+            }}</h2>
+        <div>
+            <button (click)="save()" class="btn btn-success" [disabled]="form.invalid">
+                Guardar
+            </button>
+            <button (click)="goBack()" class="btn btn-danger">Cancelar</button>
+        </div>
+    </div>
+    <form #form="ngForm">
+        <div class="form-group editBox">
+            <label for="name">Nombre:</label>
+            <input name="name" placeholder="Nombre" class="form-control" [(ngModel)]="tipoEquipo.nombre" required
+                #name="ngModel" />
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+                <div *ngIf="name.errors?.['required']">
+                    El nombre del tipo de equipo es requerido.
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

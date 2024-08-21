@@ -1,0 +1,7 @@
+.botones-edicion a {
+    margin-left: .6em;
+}
+
+th {
+    user-select: none;
+}

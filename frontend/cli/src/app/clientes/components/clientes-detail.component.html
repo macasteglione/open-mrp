@@ -1,0 +1,28 @@
+<div *ngIf="cliente">
+    <div class="botones">
+        <h2>{{
+            cliente && cliente.id ? "Clienteo N° " + cliente.id : "Nuevo Cliente"
+            }}</h2>
+        <div>
+            <button (click)="save()" class="btn btn-success" [disabled]="form.invalid">
+                Guardar
+            </button>
+            <button (click)="goBack()" class="btn btn-danger">Cancelar</button>
+        </div>
+    </div>
+    <form #form="ngForm">
+        <div class="form-group editBox">
+            <label for="name">Nombre:</label>
+            <input name="name" placeholder="Razón Social" class="form-control" [(ngModel)]="cliente.nombre" required
+                #name="ngModel" />
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+                <div *ngIf="name.errors?.['required']">
+                    El nombre del cliente es requerido.
+                </div>
+            </div>
+            <label for="code">CUIT:</label>
+            <input maxlength="11" minlength="11" name="code" placeholder="CUIT" class="form-control"
+                [(ngModel)]="cliente.cuit" required />
+        </div>
+    </form>
+</div>

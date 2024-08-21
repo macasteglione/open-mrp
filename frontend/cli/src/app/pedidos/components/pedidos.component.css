@@ -1,0 +1,48 @@
+.botones-edicion a {
+    margin-left: .6em;
+}
+
+th {
+    user-select: none;
+}
+
+.formPlanificacion {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.formPlanificacion button {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.notFound {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.notFound p {
+    font-size: 1.5em;
+    align-items: center;
+}
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.buscar {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.buscar button {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

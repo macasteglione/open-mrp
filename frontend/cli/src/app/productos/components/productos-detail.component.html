@@ -1,0 +1,70 @@
+<div *ngIf="producto">
+    <div class="botones">
+        <h2>
+            {{
+            producto && producto.id ? "Producto N° " + producto.id : "Nuevo Producto"
+            }}
+        </h2>
+        <div>
+            <button (click)="save()" [disabled]="!form.valid" class="btn btn-success">
+                Guardar
+            </button>
+            <button (click)="goBack()" class="btn btn-danger">Cancelar</button>
+        </div>
+    </div>
+    <form #form="ngForm">
+        <div class="form-group editBox">
+            <label for="customer">Nombre:</label>
+            <input name="name" placeholder="Nombre" class="form-control" [(ngModel)]="producto.nombre" required
+                #name="ngModel" />
+        </div>
+        <br>
+        <div class="table-responsive">
+            <div class="subtitulo">
+                <h2>Tareas</h2>
+                <button (click)="addTarea()" class="btn btn-success">
+                    Nuevo
+                </button>
+            </div>
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Orden</th>
+                        <th>Tiempo</th>
+                        <th>Tipo de Equipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="
+                            let tarea of producto.tareas;
+                            index as i
+                        ">
+                        <td>
+                            <input name="nombre{{i}}" [(ngModel)]="tarea.nombre" class="form-control"
+                                placeholder="Nombre" required />
+                        </td>
+                        <td>
+                            <input name="orden{{ i }}" [(ngModel)]="tarea.orden" placeholder="Orden" class="form-control" type="number"
+                                min="0" required />
+                        </td>
+                        <td>
+                            <input name="tiempo{{ i }}" [(ngModel)]="tarea.tiempo" placeholder="Tiempo" class="form-control" type="number"
+                                min="0" required />
+                        </td>
+                        <td>
+                            <input [(ngModel)]="tarea.tipoEquipo" name="tipoEquipo{{ i }}" placeholder="Tipo de Equipo"
+                                class="form-control" [ngbTypeahead]="searchTipoEquipo" [editable]="false"
+                                [resultFormatter]="resultFormat" [inputFormatter]="inputFormat" required />
+                        </td>
+                        <td>
+                            <button (click)="removeTarea(tarea)" class="btn btn-default">
+                                <i class="fa fa-remove"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,14 @@
+.nuevo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+.botones-edicion a {
+    margin-left: .6em;
+}
+
+th {
+    user-select: none;
+}

@@ -1,0 +1,68 @@
+<div *ngIf="taller">
+    <div class="botones">
+        <h2>
+            {{
+            taller && taller.id ? "Taller N° " + taller.id : "Nuevo Taller"
+            }}
+        </h2>
+        <div>
+            <button (click)="save()" [disabled]="!form.valid" class="btn btn-success">
+                Guardar
+            </button>
+            <button (click)="goBack()" class="btn btn-danger">Cancelar</button>
+        </div>
+    </div>
+    <form #form="ngForm">
+        <div class="form-group editBox">
+            <label for="customer">Código:</label>
+            <input name="code" placeholder="Código" class="form-control" [(ngModel)]="taller.codigo" required
+                #name="ngModel" />
+            <br>
+            <label for="name">Nombre:</label>
+            <input name="name" placeholder="Nombre" class="form-control" [(ngModel)]="taller.nombre" required
+                #name="ngModel" />
+        </div>
+        <br>
+        <div class="table-responsive">
+            <div class="subtitulo">
+                <h2>Equipos</h2>
+                <button (click)="addEquipo()" class="btn btn-success">
+                    Nuevo
+                </button>
+            </div>
+            <table class="table table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Tipo de Equipo</th>
+                        <th>Capacidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="
+                            let equipo of taller.equipos;
+                            index as i
+                        ">
+                        <td>
+                            <input name="nombre{{i}}" [(ngModel)]="equipo.codigo" class="form-control"
+                                placeholder="Código" required  />
+                        </td>
+                        <td>
+                            <input [(ngModel)]="equipo.tipoEquipo" name="equipo{{ i }}" placeholder="Tipo de Equipo"
+                                class="form-control"  [ngbTypeahead]="searchTipoEquipo" [editable]="false"
+                                [resultFormatter]="resultFormat" [inputFormatter]="inputFormat" required />
+                        </td>
+                        <td>
+                            <input name="capacidad{{ i }}" placeholder="Capacidad" [(ngModel)]="equipo.capacidad" class="form-control"
+                                type="number" min="0" required />
+                        <td>
+                            <button (click)="removeEquipo(equipo)" class="btn btn-default">
+                                <i class="fa fa-remove"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>

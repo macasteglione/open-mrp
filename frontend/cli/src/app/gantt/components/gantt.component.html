@@ -1,0 +1,25 @@
+<div class="my-2">
+    <h2 class="my-4">Visualización de Planificaciones</h2>
+    <label> Seleccione un taller </label>
+    <input style="width: 30%;" [(ngModel)]="taller" placeholder="taller..." class="form-control" required
+        [ngbTypeahead]="searchWorkshop" [editable]="false" [resultFormatter]="resultFormat"
+        [inputFormatter]="inputFormat" />
+</div>
+
+<div class="gantt">
+    <label for="start">Fecha desde:</label>
+    <input type="date" class="form-control" [(ngModel)]="from" />
+    <label for="end">Fecha hasta:</label>
+    <input type="date" class="form-control" [(ngModel)]="to" />
+</div>
+
+<div class="my-2">
+    <button (click)="getGanttObjects()" class="btn btn-success">
+        Mostrar planificación
+    </button>
+</div>
+<br>
+<div *ngIf="show" class="scrollable-container">
+    <google-chart class="gantt-chart" [type]="chart.type" [data]="chart.data" [options]="chart.options"
+        [style.width]="width"></google-chart>
+</div>

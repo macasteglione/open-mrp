@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    background-color: black;
+}
+
+ul li {
+    display: inline-block;
+    position: relative;
+}
+
+ul li a {
+    display: block;
+    padding: 20px 25px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+ul li ul.dropdown li {
+    display: block;
+}
+
+ul li ul.dropdown {
+    width: 100%;
+    background-color: black;
+    position: absolute;
+    display: none;
+    z-index: 4;
+}
+
+ul li a:hover {
+    background-color: rgb(41, 41, 41);
+}
+
+ul li:hover ul.dropdown {
+    display: block;
+}
+
+#page {
+    padding-top: 2em;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading .header,
+.loading .container.white-div {
+    pointer-events: none;
+}

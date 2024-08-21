@@ -1,0 +1,48 @@
+<div *ngIf="pedido">
+    <div class="botones">
+        <h2>
+            {{
+            pedido && pedido.id ? "Pedido de Fabricación N° " + pedido.id : "Nuevo Pedido de Fabricación"
+            }}
+        </h2>
+        <div>
+            <button (click)="save()" [disabled]="!form.valid" class="btn btn-success">
+                Guardar
+            </button>
+            <button (click)="goBack()" class="btn btn-danger">Atras</button>
+        </div>
+    </div>
+    <form #form="ngForm">
+        <div class="form-group editBox">
+            <label for="cliente">Cliente:</label>
+            <input [(ngModel)]="pedido.cliente" name="cliente" placeholder="Cliente" class="form-control" required
+                [ngbTypeahead]="searchCliente" [editable]="false" [resultFormatter]="resultFormat"
+                [inputFormatter]="inputFormat" />
+            <label for="cliente">CUIT:</label>
+            <p>{{ cuitFormat(pedido.cliente.cuit) }}</p>
+        </div>
+        <br>
+        <div class="form-group inline editBox">
+            <label for="fechaPedido">Fecha de Pedido:</label>
+            <input type="date" [(ngModel)]="fechaPedido" name="fechaPedido" required class="form-control">
+            <br />
+            <label for="fechaEntrega">Fecha de Entrega:</label>
+            <input type="date" [(ngModel)]="fechaEntrega" name="fechaEntrega" required class="form-control"
+                min="{{fechaPedido}}">
+            <br>
+            <label for="estado" *ngIf="pedido && pedido.id">Estado:</label>
+            <p>{{ pedido.estado }}</p>
+        </div>
+        <br>
+        <div class="form-group editBox">
+            <label for="cliente">Producto:</label>
+            <br>
+            <input [(ngModel)]="pedido.producto" name="producto" placeholder="Producto" class="form-control" required
+                [ngbTypeahead]="searchProducto" [editable]="false" [resultFormatter]="resultFormat"
+                [inputFormatter]="inputFormat" />
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" min="0" name="cantidad" placeholder="Cantidad" class="form-control"
+                [(ngModel)]="pedido.cantidad" required #name="ngModel" />
+        </div>
+    </form>
+</div>
